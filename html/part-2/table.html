@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    th, td {
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <!-- ctrl + / -->
+    <!-- Dibawah ini adalah contoh table -->
+    <table>
+        <caption>Studen List</caption>
+        <colgroup>
+            <col style="width: 100px;">
+            <col style="width: 100px;">
+            <col style="width: 100px;">
+            <col style="width: 100px;">
+            <col style="width: 100px;">
+        </colgroup>
+        <!-- 
+            head table di bawah jangan di update dulu sedang ada testing oleh QA 
+        -->
+        <!-- ini adalah head table -->
+        <thead>
+            <tr>
+                <th rowspan="2">
+                    <img src="../../cool-cat.jpg" alt="" width="50">
+                </th>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>age</th>
+            </tr>
+            <tr>
+              
+                <th>No.</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>age</th>
+            </tr>
+        </thead>
+        <!-- ini adalah body table -->
+        <tbody>
+            <tr>
+                <th rowspan="3">City</th>
+                <td>1</td>
+                <td>
+                    <input type="text">
+                </td>
+                <td><button>Hallo</button></td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Doe</td>
+                <td>Perempuan</td>
+                <td>28</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Doe</td>
+                <td>Perempuan</td>
+                <td>28</td>
+            </tr>
+            <tr>
+                <th >Country</th>
+                <td>2</td>
+                <td>Doe</td>
+                <td>Perempuan</td>
+                <td>28</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Jumlah</td>
+                <td>20</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
