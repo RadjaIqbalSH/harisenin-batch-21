@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap');
+@import url(./style2.css);
+
+@font-face {
+    font-family: "Mobile";
+    src: url('./Kanit-Regular.ttf');
+}
+
+#card {
+    width: 200px;
+    height: 200px;
+    background-color: brown;
+}
+
+.title-1 {
+    font-family: "Edu QLD Hand", cursive;
+}
+.title-2 {
+    font-family: "Mobile", cursive;
+}
+
+
+

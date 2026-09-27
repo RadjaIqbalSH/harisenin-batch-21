@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* break point */
+        @media (width <= 300px) and (max-width: 310px) {
+            body {
+                background-color: antiquewhite;
+            }
+            .box {
+                background-color: green;
+            }
+        }
+        /* break point */
+        @media (min-width: 400px) {
+            body {
+                background-color: rgb(215, 248, 250);
+            }
+            .box {
+                visibility: hidden;
+                background-color: purple;
+            }
+            .container {
+                flex-direction: column;
+            }
+        }
+
+        .article {
+            width: 400px;
+            display: -webkit-box;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+
+        }
+
+        .article {
+            transition: all .2s ease-in-out;
+           
+        }
+
+         .article:hover {
+             transform: translate(100px, 100px);
+         }
+
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="container">
+        <button>click me</button>
+        <button>click me</button>
+        <button>click me</button>
+    </div>
+    <button class="article" style="background-color: red; min-width: 200px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut commodi libero consequatur temporibus maiores voluptate ipsum nulla enim unde, minus voluptatibus a illo ipsam repellendus molestias necessitatibus repudiandae recusandae. Optio.
+    Hic, veniam, deleniti est magni molestiae molestias animi expedita repudiandae, saepe tenetur odit voluptas praesentium. Molestiae voluptatem repudiandae sequi consequuntur nihil nulla, magni nobis. Iusto repudiandae obcaecati earum optio temporibus?
+    Quisquam porro sapiente ad, consequuntur eaque in. Doloremque voluptatem, eius a odit obcaecati eligendi iusto sequi inventore expedita voluptatum modi aspernatur laborum numquam ipsum, porro quia commodi nihil ut corporis?
+    Eum aliquid quaerat vitae veritatis aspernatur dolorum magni asperiores dolorem? Libero unde magni maiores assumenda impedit eveniet natus cum deleniti consequuntur nisi minus nostrum dolores dignissimos nesciunt, aliquid nihil vel.
+    Labore quasi at mollitia non fugiat adipisci ipsum. Explicabo, culpa. Enim libero eos adipisci, animi dignissimos vero ratione, ipsa perferendis error porro possimus aspernatur tenetur laboriosam officia at. Possimus, ratione.
+    Exercitationem, adipisci consectetur porro saepe ex atque ullam, explicabo consequuntur odio rerum praesentium sunt veniam, mollitia optio corporis dolor blanditiis eos officiis temporibus harum? Placeat excepturi rerum saepe distinctio magnam.
+    Dolorem architecto impedit fugiat? Maiores minima amet blanditiis dolores nesciunt suscipit rem reiciendis quisquam tempore voluptas eos ipsum quis accusantium quibusdam assumenda quidem nulla sint, repudiandae ratione nemo, omnis cum.
+    Deserunt iure, vero quod accusamus repellendus aperiam voluptas laudantium repellat ducimus dolorem quos corrupti tempora odio officiis quia placeat magni voluptatum quidem officia? Itaque quam, cumque dolore nostrum beatae autem.
+    Quasi deserunt provident, perferendis eligendi officia rem quae eos eius debitis. Ex excepturi odit quam earum mollitia cum aut molestias soluta quisquam! Eaque corrupti sunt autem, aperiam dignissimos ipsam sit!
+    Sapiente, ratione harum nesciunt voluptate officia odit ab culpa ad ipsam est, consectetur nulla, eaque fugiat doloremque expedita? Quo voluptatibus nemo obcaecati quod nostrum, esse neque! Incidunt nisi dolorem accusantium.,</div>
+</body>
+</html>
