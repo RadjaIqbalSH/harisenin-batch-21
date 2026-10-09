@@ -65,5 +65,10 @@
 .password-visibility {
     position: absolute;
     right: 0;
-    bottom: 5px;
+    bottom: 28px;
+}
+
+.error-label {
+    color: red;
+    visibility: hidden;
 }

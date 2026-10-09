@@ -18,11 +18,13 @@
                 <div class="form-field" style="margin-bottom: 37px;">
                     <label class="body-medium-medium" for="username">Username</label>
                     <input class="input-text" id="username" type="text" placeholder="Masukkan username">
+                    <span id="error-label-username" class="body-small-regular error-label">Username is required</span>
                 </div>
                 <div class="form-field" style="margin-bottom: 12px;">
                     <label class="body-medium-medium" for="pasword">Kata Sandi</label>
                     <input class="input-text" id="pasword" type="password" placeholder="Masukkan kata sandi">
-                     <button class="btn-unstyled password-visibility">
+                    <span id="error-label-password" class="body-small-regular error-label">Password is required</span>
+                    <button id="btn-password-visibility" class="btn-unstyled password-visibility" type="button" onclick="handleClik()">
                         <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
                         </svg>
@@ -46,10 +48,6 @@
 </body>
 
 <script>
-    // console.log("Hallo World");
-    // console.log("document =>", document)
-    // console.dir(document)
-
     // document.getElementById("login-form")
     // console.dir(document.getElementById("login-form").children)
     // console.dir(document.querySelector("a"))
@@ -62,16 +60,67 @@
 
     const elementForm = document.getElementById("login-form");
     const elementLabelErrorLogin = document.getElementById("label-error-login");
+    const elementLabelErrorUsername = document.getElementById("error-label-username");
+    const elementLabelErrorPassword = document.getElementById("error-label-password");
+    const elementBtnPasswordVisibility = document.getElementById("btn-password-visibility")
+    const elementInputPassword = document.getElementById("pasword")
+    const elementInputUsername = document.getElementById("username")
 
-    
+    elementInputUsername.addEventListener("keypress", () => {
+        elementLabelErrorUsername.style.visibility = "hidden"
+    });
+    elementInputPassword.addEventListener("keypress", () => {
+        elementLabelErrorPassword.style.visibility = "hidden"
+    });
+
+    // elementBtnPasswordVisibility.addEventListener("click", () => {
+        
+
+    //     if (elementInputPassword.type === "password") {
+    //         elementInputPassword.type = "text"
+    //     } else {
+    //         elementInputPassword.type = "password"
+    //     }
+    // })
+
+    function handleClik () {
+        if (elementInputPassword.type === "password") {
+            elementInputPassword.type = "text"
+        } else {
+            elementInputPassword.type = "password"
+        }
+    }
+
     elementForm.addEventListener("submit", function (event) {
         event.preventDefault();
+
+        // const elementButton = document.createElement("button")
+
+        // elementButton.textContent = "Selamat Datang"
+        // elementButton.style.backgroundColor = "red"
+
+        // elementForm.appendChild(elementButton)
 
         const username = event.target[0].value;
         const password = event.target[1].value;
 
+        if (!username) {
+            elementLabelErrorUsername.style.visibility = "visible";
+        }
+            
+
+        if (!password) {
+            elementLabelErrorPassword.style.visibility = "visible"
+        }
+
+        if (!username || !password) {
+            return;
+        }
+
         if (username === account.username && password === account.password) {
-            console.log("user valid")
+            
+            location.href = "http://localhost:5500/practice-html-css/index.html"
+
         } else {
             // dom manipulation
             elementLabelErrorLogin.style.visibility = "visible"
