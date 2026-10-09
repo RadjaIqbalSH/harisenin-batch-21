@@ -3,7 +3,7 @@
     --text-dark-secondary : rgba(58, 53, 65, 0.68);
     --text-dark-disabled : rgba(58, 53, 65, 0.38);
     /* text-light */
-    --text-light-primary : rgba(231, 227, 252, 0.87);
+    --text-light-primary : rgba(255, 255, 255, 1);
     /* grayscale */
     --greyscale-900: rgba(33, 33, 33, 1);
     --greyscale-800: rgba(66, 66, 66, 1);

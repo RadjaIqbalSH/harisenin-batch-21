@@ -5,11 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chill App</title>
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
-    <h1>Hallo World</h1>
-    <button class="btn-secondary-contained">Click me</button>
-
-    <button class="btn-secondary-contained">Click Me 2</button>
+    <header class="navbar">
+        <img class="navbar-logo" src="./assets/logo.png" alt="">
+        <nav class="navbar-link">
+            <a class="body-large-medium" href="">Series</a>
+            <a class="body-large-medium" href="">Film</a>
+            <a class="body-large-medium" href="">Daftar Saya</a>
+        </nav>
+        <div class="profile">
+            <img class="user-icon" src="./assets/user-icon.png" alt="">
+            <button class="btn-unstyled">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <main>
+        <section class="hero-section">
+            <img class="hero-image" src="./assets/home-bg-1.png" alt="">
+            <div class="wrapper-gradient"></div>
+            <h2 class="heading-1" style="margin-bottom: 20px;">Duty After School</h2>
+            <p class="body-large-medium" style="margin-bottom: 40px;">Sebuah benda tak dikenal mengambil alih dunia. Dalam keputusasaan, Departemen Pertahanan mulai merekrut lebih banyak tentara, termasuk siswa sekolah menengah. Mereka pun segera menjadi pejuang garis depan dalam perang.</p>
+            <div class="hero-action">
+                <button class="btn-primary-shadow body-small-bold">Mulai</button>
+                <button class="btn-secondary-contained">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>
+                    Selengkapnya
+                </button>
+                <div class="tag body-medium-regular">18+</div>
+                <button class="btn-sound">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+        <section class="section-1">
+            <h2 class="heading-3" style="margin-bottom: 32px;">Melanjutkan Tonton Film</h2>
+            <div class="section-1-carousel">
+                <button class="btn-prev">
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                </button>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-1.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-2.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-3.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-4.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <button class="btn-next">
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+        <section class="section-1">
+            <h2 class="heading-3" style="margin-bottom: 32px;">Melanjutkan Tonton Film</h2>
+            <div class="section-1-carousel">
+                <button class="btn-prev">
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                </button>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-3.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-4.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-1.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-2.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <button class="btn-next">
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+        <section class="section-1">
+            <h2 class="heading-3" style="margin-bottom: 32px;">Melanjutkan Tonton Film</h2>
+            <div class="section-1-carousel">
+                <button class="btn-prev">
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                </button>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-4.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-1.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-2.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <div class="card-1">
+                    <img class="card-1-image" src="./assets/film-cover-3.png" alt="">
+                    <div class="card-1-gradient"></div>
+                    <p class="heading-6">Don’t Look Up</p>
+                    <span class="body-small-regular">4.5/5</span>
+                </div>
+                <button class="btn-next">
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

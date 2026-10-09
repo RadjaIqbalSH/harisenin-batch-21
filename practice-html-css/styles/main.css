@@ -1,6 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('./token.css');
 
+body {
+    margin: 0;
+    background-color: rgba(24, 26, 28, 1);
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+* {
+    box-sizing: border-box;
+    color: var(--text-light-primary);
+}
+
+*::placeholder {
+    color: var(--text-light-primary);
+}
+
 /* Heading */
 .heading-1 {
     font-family: 'Lato';
@@ -183,17 +208,24 @@
 
 /* button */
 .btn-secondary-contained {
-    width: fit;
+    cursor: pointer;
     height: 42px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
     padding-top: 10px;
     padding-right: 26px;
     padding-bottom: 10px;
     padding-left: 26px;
     border-radius: 48px;
-    background-color: var(--greyscale-800);
+    border-color: transparent;
+    background-color: rgba(61, 65, 66, 1);
     color: var(--text-light-primary);
 }
 .btn-secondary-shadow {
+    cursor: pointer;
     width: fit;
     height: 42px;
     padding-top: 10px;
@@ -205,17 +237,53 @@
     color: var(--greyscale-800);
 }
 .btn-secondary-outlined {
+    cursor: pointer;
+    width: fit;
+    height: 42px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 10px;
+    padding-right: 26px;
+    padding-bottom: 10px;
+    padding-left: 26px;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 48px;
+    border-color: rgba(231, 227, 252, 0.23);
+}
+
+.btn-primary-shadow {
+    cursor: pointer;
     width: fit;
     height: 42px;
     padding-top: 10px;
     padding-right: 26px;
     padding-bottom: 10px;
     padding-left: 26px;
-    background-color: transparent;
-    color: var(--greyscale-800);
-    border-width: 1px;
     border-radius: 48px;
-    border-color: var(--greyscale-800);
+    border-color: transparent;
+    background-color: rgba(25, 45, 183, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.btn-unstyled {
+    cursor: pointer;
+    width: fit;
+    height: 42px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 10px;
+    padding-right: 26px;
+    padding-bottom: 10px;
+    padding-left: 26px;
+    background-color: transparent;
+    border: none;
 }
 
 .input-text {
@@ -223,9 +291,10 @@
     height: 50px;
     border-radius: 24px;
     border-width: 1px;
-    border-color: var(--greyscale-700);
+    border-color: rgba(231, 227, 252, 0.23);
     padding-top: 14px;
     padding-right: 20px;
     padding-bottom: 14px;
     padding-left: 20px;
+    background-color: transparent;
 }
