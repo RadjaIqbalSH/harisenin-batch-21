@@ -13,7 +13,8 @@
             <img class="logo" src="./assets/logo.png" alt="logo">
             <h1 class="heading-3" style="margin-bottom: 8px;">Masuk</h1>
             <p class="body-medium-regular" style="margin-bottom: 37px;">Selamat datang kembali!</p>
-            <form class="login-form">
+            <span id="label-error-login" class="body-small-regular" style="color: red; visibility: hidden;">Invalid username / password</span>
+            <form id="login-form" class="login-form" action="">
                 <div class="form-field" style="margin-bottom: 37px;">
                     <label class="body-medium-medium" for="username">Username</label>
                     <input class="input-text" id="username" type="text" placeholder="Masukkan username">
@@ -32,7 +33,7 @@
                     <a class="body-small-regular" href="">Lupa kata sandi?</a>
                 </div>
                 <div class="form-action">
-                    <button class="btn-secondary-contained body-small-semibold" style="width: 100%;">Masuk</button>
+                    <button class="btn-secondary-contained body-small-semibold" style="width: 100%;" type="submit">Masuk</button>
                     <span class="body-small-medium">Atau</span>
                     <button class="btn-secondary-outlined body-small-semibold" style="width: 100%;">
                         <img class="btn-logo" src="./assets/google-icon.png"/>
@@ -43,4 +44,41 @@
         </div>
     </main>
 </body>
+
+<script>
+    // console.log("Hallo World");
+    // console.log("document =>", document)
+    // console.dir(document)
+
+    // document.getElementById("login-form")
+    // console.dir(document.getElementById("login-form").children)
+    // console.dir(document.querySelector("a"))
+    // console.dir(document.querySelectorAll("div"))
+
+    const account = {
+        username : "admin",
+        password : "password"
+    }
+
+    const elementForm = document.getElementById("login-form");
+    const elementLabelErrorLogin = document.getElementById("label-error-login");
+
+    
+    elementForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const username = event.target[0].value;
+        const password = event.target[1].value;
+
+        if (username === account.username && password === account.password) {
+            console.log("user valid")
+        } else {
+            // dom manipulation
+            elementLabelErrorLogin.style.visibility = "visible"
+            console.log("user tidak valid")
+        }
+    })
+
+</script>
+
 </html>
