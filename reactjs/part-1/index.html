@@ -15,6 +15,52 @@
     </script>
     <!-- Babel Standalone -->
     <script src="https://unpkg.com/@babel/standalone@latest/babel.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .card {
+            width: 250px;
+            height: auto;
+            border: 1px solid black;
+            border-radius: 8px;
+        }
+        .card-head {
+            width: 100%;
+            height: auto;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-body {
+            width: 100%;
+            min-height: 100px;
+            height: auto;
+            padding: 12px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-foot {
+            width: 100%;
+            height: auto;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
 <body>
     <div id="app" ></div>
@@ -44,7 +90,6 @@
         const headerContent = document.createTextNode(text);
         header.appendChild(headerContent);
         app.appendChild(header);
-        
     </script> -->
 
     <!-- DECLARATIVE VERSION -->
@@ -55,33 +100,89 @@
         const domNode = document.getElementById('app');
 
         const root = createRoot(domNode);
-
+       
         function Title (props) {
-
-            console.log("props => ", props)
-
             return (
-                <>
-                    <h1 
-                        className="" 
-                        style={{
-                            color: props.color
-                        }} 
-                        onClick={() => {}}
-                    >
-                        Hallo World {props.sufix}
-                    </h1>
-                    <button></button>
-                </>
+                <h1 
+                    className="" 
+                    style={{
+                        color: props.color || "black"
+                    }} 
+                    onClick={() => {}}
+                >
+                    {props.text}
+                </h1>
             );  
         }
+
+        function Card (props) {
+            return (
+                <div className="card">
+                    <div className="card-head"> 
+                        <Title text={props.title}/>
+                    </div>
+                    <div className="card-body">
+                        <img src={props.imgUrl} style={{
+                            width: "230px",
+                            heigh: "230px",
+                        }}/>
+                        {props.children}
+                    </div>
+                    <p className="card-foot">
+                        {props.description}
+                    </p>
+                </div>
+            )
+        }
+
+        const data = [
+            {
+                id: 1,
+                title: "Title 1",
+                imgUrl: "../../cool-cat.jpg",
+                description: "Card ini keren 1",
+            },
+            {
+                id: 2,
+                title: "Title 2",
+                imgUrl: "../../cool-cat.jpg",
+                description: "Card ini keren 2",
+            },
+            {
+                id: 3,
+                title: "Title 3",
+                imgUrl: "../../cool-cat.jpg",
+                description: "Card ini keren 3",
+            },
+            {
+                id: 4,
+                title: "Title 4",
+                imgUrl: "../../cool-cat.jpg",
+                description: "Card ini keren 3",
+            },
+            {
+                id: 5,
+                title: "Title 5",
+                imgUrl: "../../cool-cat.jpg",
+                description: "Card ini keren 3",
+            },
+        ]
+
         
         root.render(
-            <div>
-                <Title sufix="1" color="green"/>
-                <Title sufix="2" color="red"/>
-                <Title sufix="3" color="yellow"/>
-                <Title sufix="4" color="blue"/>
+            <div className="container">
+                {
+                    data.map((item) => (
+                        <Card 
+                            key={item.id}
+                            title={item.title} 
+                            description={item.description} 
+                            imgUrl={item.imgUrl}
+                        >
+                            <button>Click Me</button>
+                        </Card>
+                    ))
+                }
             </div>
         );
     </script>
