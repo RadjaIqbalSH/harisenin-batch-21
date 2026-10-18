@@ -1,0 +1,70 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../assets/bakground-1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.registration-container {
+    width: 529px;
+    /* height: 663px; */
+    /* gap: 37px; */
+    border-radius: 16px;
+    padding: 40px;
+    background-color: rgba(24, 26, 28, 0.84);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.logo {
+   width: 163px; 
+   height: 44px;
+   margin-bottom: 37px;
+}
+
+.registration-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+
+.form-info-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 37px;
+}
+
+.form-action {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.btn-logo {
+    width: 18px;
+    height: 18px;
+}
+
+.password-visibility {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+}
