@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react"
+import { NavLink, useNavigate } from "react-router";
 
-import "./assets/styles/login.css" 
-import LogoImage from "./assets/logo.png"
-import GoogleImage from "./assets/google-icon.png"
+import "../assets/styles/login.css" 
+import LogoImage from "../assets/logo.png"
+import GoogleImage from "../assets/google-icon.png"
 
-function App() {
+const STATIC_USERNAME = "admin"
+const STATIC_PASSWORD = "admin"
 
-  const [username, setUsername] = useState("")
+function LoginPage() {
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const [errorUsername, setErrorUsername] = useState(false)
-  const [password, setPassword] = useState("")
   const [errorPassword, setErrorpassword] = useState(false)
+  const [errorLogin, setErrorLogin] = useState(false)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (username.length < 1) {
@@ -36,12 +44,12 @@ function App() {
   }
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-
-    // if (username = "admin") {
-
-    // }
-
+    event.preventDefault();
+    if (username === STATIC_USERNAME && password === STATIC_PASSWORD) {
+        navigate("/");
+    } else {
+        setErrorLogin(true)
+    }
   }
 
   return (
@@ -58,7 +66,7 @@ function App() {
           <span
             id="label-error-login"
             className="body-small-regular"
-            style={{ color: "red", visibility: "hidden" }}
+            style={{ color: "red", visibility: errorLogin ? "visible" : "hidden" }}
           >
             Invalid username / password
           </span>
@@ -118,6 +126,9 @@ function App() {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
+                  style={{
+                    marginBottom: "48px"
+                  }}
                   className="size-6"
                 >
                   <path
@@ -131,9 +142,9 @@ function App() {
             <div className="form-info-wrapper">
               <span className="body-small-regular">
                 Belum punya akun?{" "}
-                <a className="body-small-regular" href="">
-                  Daftar
-                </a>
+                <NavLink className="body-small-regular" to="/register">
+                    Daftar
+                </NavLink>
               </span>
               <a className="body-small-regular" href="">
                 Lupa kata sandi?
@@ -163,4 +174,4 @@ function App() {
   )
 }
 
-export default App
+export default LoginPage
