@@ -1,5 +1,4 @@
-import {useContext} from "react"
-import { ThemeContext } from "../context/theme";
+import { useTheme } from "../store/theme";
 
 export default function BodyMediumRegular (props) {
 
@@ -8,10 +7,12 @@ export default function BodyMediumRegular (props) {
         ...restProps
     } = props
 
-    const theme = useContext(ThemeContext)
+    // const theme = useContext(ThemeContext)
+
+    const themeStore = useTheme()
 
     return (
-        <p className="body-medium-regular" {...restProps} style={theme ? {color: "black"} : {}} >
+        <p className="body-medium-regular" {...restProps} style={themeStore.theme ? {color: "black"} : {}} >
             {children}
         </p>
     )

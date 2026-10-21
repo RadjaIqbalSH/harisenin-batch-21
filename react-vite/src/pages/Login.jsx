@@ -7,6 +7,7 @@ import Heading3 from "../components/heading3";
 import BodyMediumRegular from "../components/bodyMediumRegular";
 import FormLogin from "../components/FormLogin";
 import { ThemeContext } from "../context/theme";
+import { useTheme } from "../store/theme"
 
 const STATIC_USERNAME = "admin";
 const STATIC_PASSWORD = "admin";
@@ -56,30 +57,33 @@ function LoginPage() {
 
   const [theme, setTheme] = useState(false);
 
-  const handelTheme = () => {
-    if (theme) {
-      setTheme(false);
-    } else {
-      setTheme(true);
-    }
-  };
+  const themeStore = useTheme()
+
+  // const handelTheme = () => {
+  //   if (theme) {
+  //     themeStore.changeTheme(),
+  //     setTheme(false);
+  //   } else {
+  //     setTheme(true);
+  //   }
+  // };
 
   return (
     <>
-      <ThemeContext value={theme}>
+      {/* <ThemeContext value={theme}> */}
         <main className="container">
           <div
             className="login-container"
             style={
-              theme
+              themeStore.theme
                 ? {
                     backgroundColor: "white",
                   }
                 : {}
             }
           >
-            <button onClick={handelTheme} style={{ backgroundColor: "black" }}>
-              Theme : {theme ? "Light" : "Dark"}
+            <button onClick={themeStore.changeTheme} style={{ backgroundColor: "black" }}>
+              Theme : {themeStore.theme ? "Light" : "Dark"}
             </button>
             <img className="logo" src={LogoImage} alt="logo" />
             <Heading3 style={{ marginBottom: 8 }}>
@@ -107,7 +111,7 @@ function LoginPage() {
             />
           </div>
         </main>
-      </ThemeContext>
+      {/* </ThemeContext> */}
     </>
   );
 }
