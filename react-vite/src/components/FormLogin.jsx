@@ -11,7 +11,6 @@ export default function FormLogin(props) {
     errorUsername,
     handlePassword,
     errorPassword,
-    theme,
   } = props;
 
   return (
@@ -21,7 +20,6 @@ export default function FormLogin(props) {
         label="Username"
         isError={errorUsername}
         errorMsg="Username is required"
-        theme={theme}
       >
         <InputText
           id="username"
@@ -34,7 +32,6 @@ export default function FormLogin(props) {
         label="password"
         isError={errorPassword}
         errorMsg="Password is required"
-        theme={theme}
       >
         <InputPassword
           id="password"

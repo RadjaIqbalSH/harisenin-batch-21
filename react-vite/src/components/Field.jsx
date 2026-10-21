@@ -1,5 +1,10 @@
+import { useContext } from "react";
+import { ThemeContext } from "../context/theme";
+
 export default function Field(props) {
-  const { id, label, isError, errorMsg, children, theme } = props;
+  const { id, label, isError, errorMsg, children } = props;
+
+  const theme = useContext(ThemeContext)
 
   return (
     <div className="form-field" style={{ marginBottom: 37 }}>
