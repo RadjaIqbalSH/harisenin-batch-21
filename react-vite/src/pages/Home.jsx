@@ -1,17 +1,91 @@
 import "../assets/styles/index.css" 
+import axios from 'axios';
 
 import LogoImage from "../assets/logo.png"
 import UserImage from "../assets/user-icon.png"
 import HomeBG1Image from "../assets/home-bg-1.png"
-import FilmCover1Image from "../assets/film-cover-1.png"
-import FilmCover2Image from "../assets/film-cover-2.png"
-import FilmCover3Image from "../assets/film-cover-3.png"
-import FilmCover4Image from "../assets/film-cover-4.png"
 import Carousel from "../components/Carousel";
 import Card from "../components/Card";
-import DetailVideoModal from "../components/DetailVideoModal";
+import { useEffect, useState } from "react";
+// import DetailVideoModal from "../components/DetailVideoModal";
 
 export default function HomePage() {
+
+  const [movieRecent, setMovieRecent] = useState([])
+  const [movieTopRating, setMovieTopRating] = useState([])
+  const [movieTranding, setMovieTranding] = useState([])
+
+  async function getRecentMovie () {
+    const token = localStorage.getItem("token")
+    const options = {
+      method: 'GET',
+      url: 'https://dytuputtiertanijmjev.supabase.co/rest/v1/video',
+      params: {select: '*', type: 'eq.recent'},
+      headers: {
+        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA',
+        Authorization: `Bearer ${token}`
+      }
+    };
+
+    try {
+      const { data } = await axios.request(options);
+      console.log(data);
+      setMovieRecent(data.slice(0,3))
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  async function getTopRatingMovie () {
+    const token = localStorage.getItem("token")
+    const options = {
+      method: 'GET',
+      url: 'https://dytuputtiertanijmjev.supabase.co/rest/v1/video',
+      params: {select: '*', type: 'eq.top_rating'},
+      headers: {
+        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA',
+        Authorization: `Bearer ${token}`
+      }
+    };
+
+    try {
+      const { data } = await axios.request(options);
+      console.log(data);
+      setMovieTopRating(data.slice(0,3))
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  async function getTrandingMovie () {
+    const token = localStorage.getItem("token")
+    const options = {
+      method: 'GET',
+      url: 'https://dytuputtiertanijmjev.supabase.co/rest/v1/video',
+      params: {select: '*', type: 'eq.trending'},
+      headers: {
+        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA',
+        Authorization: `Bearer ${token}`
+      }
+    };
+
+    try {
+      const { data } = await axios.request(options);
+      console.log(data);
+      setMovieTranding(data.slice(0,3))
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getRecentMovie()
+  }, [])
+  useEffect(() => {
+    getTopRatingMovie()
+  }, [])
+  useEffect(() => {
+    getTrandingMovie()
+  }, [])
+
   return (
     <>
       <header className="navbar">
@@ -107,109 +181,54 @@ export default function HomePage() {
           </div>
         </section>
         <Carousel title="Melanjutkan Tonton Film">
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={1}
-          />
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={1}
-          />
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={1}
-          />
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={1}
-          />
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={1}
-          />
+          {
+            movieRecent.map((item) => (
+              <Card
+              key={item.id}
+                id={item.id}
+                onClick={() => {}}
+                title={item.name}
+                rating={item.rating}
+                isPremium={item.is_premium}
+                image={item.cover_url}
+                type={1}
+              />
+            ))
+          }
         </Carousel>
         <Carousel title="Top Rating Film dan Series Hari ini">
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={2}
-          />
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={2}
-          />
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={2}
-          />
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={2}
-          />
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={2}
-          />
-          <Card
-            id={"asdasd"}
-            onClick={() => {}}
-            title="asd"
-            rating="4.3"
-            isPremium={true}
-            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
-            type={2}
-          />
+           {
+            movieTopRating.map((item) => (
+              <Card
+              key={item.id}
+                id={item.id}
+                onClick={() => {}}
+                title={item.name}
+                rating={item.rating}
+                isPremium={item.is_premium}
+                image={item.cover_url}
+                type={2}
+              />
+            ))
+          }
         </Carousel>
-        <DetailVideoModal/>
+        <Carousel title="Tranding">
+           {
+            movieTranding.map((item) => (
+              <Card
+              key={item.id}
+                id={item.id}
+                onClick={() => {}}
+                title={item.name}
+                rating={item.rating}
+                isPremium={item.is_premium}
+                image={item.cover_url}
+                type={2}
+              />
+            ))
+          }
+        </Carousel>
+        {/* <DetailVideoModal/> */}
       </main>
     </>
   );
