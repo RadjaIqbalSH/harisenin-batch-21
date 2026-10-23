@@ -7,6 +7,9 @@ import FilmCover1Image from "../assets/film-cover-1.png"
 import FilmCover2Image from "../assets/film-cover-2.png"
 import FilmCover3Image from "../assets/film-cover-3.png"
 import FilmCover4Image from "../assets/film-cover-4.png"
+import Carousel from "../components/Carousel";
+import Card from "../components/Card";
+import DetailVideoModal from "../components/DetailVideoModal";
 
 export default function HomePage() {
   return (
@@ -103,255 +106,110 @@ export default function HomePage() {
             </button>
           </div>
         </section>
-        <section className="section-1">
-          <h2 className="heading-3" style={{ marginBottom: 32 }}>
-            Melanjutkan Tonton Film
-          </h2>
-          <div className="section-1-carousel">
-            <button className="btn-prev">
-              <svg
-                width={20}
-                height={20}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                />
-              </svg>
-            </button>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover1Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover2Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover3Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover4Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <button className="btn-next">
-              <svg
-                width={20}
-                height={20}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </button>
-          </div>
-        </section>
-        <section className="section-1">
-          <h2 className="heading-3" style={{ marginBottom: 32 }}>
-            Melanjutkan Tonton Film
-          </h2>
-          <div className="section-1-carousel">
-            <button className="btn-prev">
-              <svg
-                width={20}
-                height={20}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                />
-              </svg>
-            </button>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover3Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover4Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover1Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover2Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <button className="btn-next">
-              <svg
-                width={20}
-                height={20}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </button>
-          </div>
-        </section>
-        <section className="section-1">
-          <h2 className="heading-3" style={{ marginBottom: 32 }}>
-            Melanjutkan Tonton Film
-          </h2>
-          <div className="section-1-carousel">
-            <button className="btn-prev">
-              <svg
-                width={20}
-                height={20}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                />
-              </svg>
-            </button>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover4Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover1Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover2Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <div className="card-1">
-              <img
-                className="card-1-image"
-                src={FilmCover3Image}
-                alt=""
-              />
-              <div className="card-1-gradient" />
-              <p className="heading-6">Don’t Look Up</p>
-              <span className="body-small-regular">4.5/5</span>
-            </div>
-            <button className="btn-next">
-              <svg
-                width={20}
-                height={20}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </button>
-          </div>
-        </section>
+        <Carousel title="Melanjutkan Tonton Film">
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={1}
+          />
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={1}
+          />
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={1}
+          />
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={1}
+          />
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={1}
+          />
+        </Carousel>
+        <Carousel title="Top Rating Film dan Series Hari ini">
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={2}
+          />
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={2}
+          />
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={2}
+          />
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={2}
+          />
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={2}
+          />
+          <Card
+            id={"asdasd"}
+            onClick={() => {}}
+            title="asd"
+            rating="4.3"
+            isPremium={true}
+            image="https://dytuputtiertanijmjev.supabase.co/storage/v1/object/public/video/horizontal-image-1.png"
+            type={2}
+          />
+        </Carousel>
+        <DetailVideoModal/>
       </main>
     </>
   );

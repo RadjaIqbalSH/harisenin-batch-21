@@ -120,8 +120,9 @@
 
 .card-1 {
     position: relative;
-    width: 302px;
-    height: 162px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 302/162;
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -129,6 +130,7 @@
     border-radius: 16px;
     overflow: hidden;
     padding: 16px;
+    cursor: pointer;
 }
 .card-1-image {
     position: absolute;
@@ -140,7 +142,7 @@
     z-index: -2;
 }
 .card-1-gradient {
-     position: absolute;
+    position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
@@ -148,6 +150,50 @@
     object-fit: cover;
     z-index: -1;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.04%, rgba(0, 0, 0, 0.5) 100%);
+}
+.card-2 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 234/365;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 16px;
+    cursor: pointer;
+}
+.card-2-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    z-index: -2;
+}
+.card-2-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.04%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.card-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    background-color: rgba(183, 162, 7, 1);
+    padding: 4px 10px;
+    border-radius: 90px;
+    color: rgba(255, 255, 255, 1);
 }
 
 .btn-prev {
@@ -172,4 +218,49 @@
     height: 44px;
     border-color: rgba(231, 227, 252, 0.23);
     background-color: rgba(47, 51, 52, 1);
+}
+
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(24, 26, 28, 0.3);
+    z-index: 10;
+}
+.modal {
+    position: relative;
+    width: 933px;
+    min-height: 200px;
+    border-radius: 16px;
+    background-color: rgba(24, 26, 28, 1);
+}
+.modal-top {
+    position: relative;
+    width: 933px;
+    height: 554px;
+    padding: 345px 80px 0px 80px;
+}
+.modal-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 933px;
+    height: 554px;
+}
+.modal-title {
+    margin-bottom: 24px;
+}
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 20;
+}
+.modal-action {
+    display: flex;
 }
