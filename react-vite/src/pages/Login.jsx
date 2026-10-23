@@ -76,9 +76,7 @@ function LoginPage() {
       url: 'https://dytuputtiertanijmjev.supabase.co/auth/v1/token',
       params: {grant_type: "password"},
       headers: {
-        Authorization: 'Bearer sb_secret_PFrzVsZnNPvV3apbguclsw_QIUOy3pX',
-        'Content-Type': 'application/json',
-        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA'
+       
       },
       data: { email: username, password: password }
     };
