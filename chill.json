@@ -1,0 +1,217 @@
+{
+  "info": {
+    "name": "chill",
+    "description": null,
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "apikey",
+            "value": "sb_secret_PFrzVsZnNPvV3apbguclsw_QIUOy3pX",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer sb_secret_PFrzVsZnNPvV3apbguclsw_QIUOy3pX",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "description": "",
+        "url": {
+          "raw": "https://dytuputtiertanijmjev.supabase.co/auth/v1/signup",
+          "protocol": "https",
+          "host": [
+            "dytuputtiertanijmjev",
+            "supabase",
+            "co"
+          ],
+          "path": [
+            "auth",
+            "v1",
+            "signup"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"password\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer   sb_secret_PFrzVsZnNPvV3apbguclsw_QIUOy3pX",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "apikey",
+            "value": "sb_secret_PFrzVsZnNPvV3apbguclsw_QIUOy3pX",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "description": "",
+        "url": {
+          "raw": "https://dytuputtiertanijmjev.supabase.co/auth/v1/token?grant_type=password",
+          "protocol": "https",
+          "host": [
+            "dytuputtiertanijmjev",
+            "supabase",
+            "co"
+          ],
+          "path": [
+            "auth",
+            "v1",
+            "token"
+          ],
+          "query": [
+            {
+              "key": "grant_type",
+              "value": "password"
+            }
+          ],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"password\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "get video ny type",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "apikey",
+            "value": "sb_secret_PFrzVsZnNPvV3apbguclsw_QIUOy3pX",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6ImRlZTYzYWU0LWUyOWUtNDdkMi1iYTlkLWY4YzhjMmM4YzlhYyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2R5dHVwdXR0aWVydGFuaWptamV2LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNzY1NDU5Mi1iYjA5LTQxODUtYmQ2MC01YTUxM2ExNWFlOTAiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzkyNzU1MzU3LCJpYXQiOjE3OTI3NTE3NTcsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJwaG9uZSI6IiIsImFwcF9tZXRhZGF0YSI6eyJwcm92aWRlciI6ImVtYWlsIiwicHJvdmlkZXJzIjpbImVtYWlsIl19LCJ1c2VyX21ldGFkYXRhIjp7ImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGhvbmVfdmVyaWZpZWQiOmZhbHNlLCJzdWIiOiJiNzY1NDU5Mi1iYjA5LTQxODUtYmQ2MC01YTUxM2ExNWFlOTAifSwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJhYWwiOiJhYWwxIiwiYW1yIjpbeyJtZXRob2QiOiJwYXNzd29yZCIsInRpbWVzdGFtcCI6MTc5Mjc1MTc1N31dLCJzZXNzaW9uX2lkIjoiZTlhYTQzMzQtNTA4NS00ZmNkLWFiYzMtYWFiNjQyNjIwY2ZlIiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.Z_9ZM2b8tfKEz0tK4pzs7uaEh7d6IvCgVIohwpsSRcpivregJXiyC039YrDyegU7VeR0wJyz1PPbxHQ34qv-cA",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "description": "",
+        "url": {
+          "raw": "https://dytuputtiertanijmjev.supabase.co/rest/v1/video?select=*&type=eq.recent",
+          "protocol": "https",
+          "host": [
+            "dytuputtiertanijmjev",
+            "supabase",
+            "co"
+          ],
+          "path": [
+            "rest",
+            "v1",
+            "video"
+          ],
+          "query": [
+            {
+              "key": "select",
+              "value": "*"
+            },
+            {
+              "key": "type",
+              "value": "eq.recent"
+            }
+          ],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "get detail video",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "apikey",
+            "value": "sb_secret_PFrzVsZnNPvV3apbguclsw_QIUOy3pX",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6ImRlZTYzYWU0LWUyOWUtNDdkMi1iYTlkLWY4YzhjMmM4YzlhYyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2R5dHVwdXR0aWVydGFuaWptamV2LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiNzY1NDU5Mi1iYjA5LTQxODUtYmQ2MC01YTUxM2ExNWFlOTAiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzkyNzU5OTM5LCJpYXQiOjE3OTI3NTYzMzksImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJwaG9uZSI6IiIsImFwcF9tZXRhZGF0YSI6eyJwcm92aWRlciI6ImVtYWlsIiwicHJvdmlkZXJzIjpbImVtYWlsIl19LCJ1c2VyX21ldGFkYXRhIjp7ImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGhvbmVfdmVyaWZpZWQiOmZhbHNlLCJzdWIiOiJiNzY1NDU5Mi1iYjA5LTQxODUtYmQ2MC01YTUxM2ExNWFlOTAifSwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJhYWwiOiJhYWwxIiwiYW1yIjpbeyJtZXRob2QiOiJwYXNzd29yZCIsInRpbWVzdGFtcCI6MTc5Mjc1NjMzOX1dLCJzZXNzaW9uX2lkIjoiMzkyOWYyZWEtNDEzNC00ZjBjLTg1YWItZmE5YWU5MTNhMWJjIiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.y576S_sRhRmdfWn2o_lxGF3lEsn29mMKxiDXsxoY0LRr0vALNYuJHqfVYsGwfvPLc82k-RfvRWrmEEEbqghZNw",
+            "description": "",
+            "disabled": false,
+            "type": "default"
+          }
+        ],
+        "description": "",
+        "url": {
+          "raw": "https://dytuputtiertanijmjev.supabase.co/rest/v1/video?id=eq.09a8378c-9e11-446e-894a-cbe12b25ea6d",
+          "protocol": "https",
+          "host": [
+            "dytuputtiertanijmjev",
+            "supabase",
+            "co"
+          ],
+          "path": [
+            "rest",
+            "v1",
+            "video"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "eq.09a8378c-9e11-446e-894a-cbe12b25ea6d"
+            }
+          ],
+          "variable": []
+        }
+      }
+    }
+  ],
+  "variable": []
+}
