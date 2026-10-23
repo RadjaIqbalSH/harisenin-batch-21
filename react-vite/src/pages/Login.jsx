@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import axios from 'axios';
 
 import "../assets/styles/login.css";
 import LogoImage from "../assets/logo.png";
 import Heading3 from "../components/heading3";
 import BodyMediumRegular from "../components/bodyMediumRegular";
 import FormLogin from "../components/FormLogin";
-import { ThemeContext } from "../context/theme";
+// import { ThemeContext } from "../context/theme";
 import { useTheme } from "../store/theme"
 
 const STATIC_USERNAME = "admin";
@@ -46,16 +47,17 @@ function LoginPage() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (username === STATIC_USERNAME && password === STATIC_PASSWORD) {
-      navigate("/");
-    } else {
-      setErrorLogin(true);
-    }
+    await login(username, password)
+    // if (username === STATIC_USERNAME && password === STATIC_PASSWORD) {
+    //   navigate("/");
+    // } else {
+    //   setErrorLogin(true);
+    // }
   };
 
-  const [theme, setTheme] = useState(false);
+  // const [theme, setTheme] = useState(false);
 
   const themeStore = useTheme()
 
@@ -67,6 +69,27 @@ function LoginPage() {
   //     setTheme(true);
   //   }
   // };
+
+  async function  login (username, password) {
+    const options = {
+      method: 'POST',
+      url: 'https://dytuputtiertanijmjev.supabase.co/auth/v1/token',
+      params: {grant_type: "password"},
+      headers: {
+        Authorization: 'Bearer sb_secret_PFrzVsZnNPvV3apbguclsw_QIUOy3pX',
+        'Content-Type': 'application/json',
+        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA'
+      },
+      data: { email: username, password: password }
+    };
+
+    try {
+      const { data } = await axios.request(options);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
