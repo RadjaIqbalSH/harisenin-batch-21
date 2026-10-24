@@ -4,7 +4,7 @@ import { RouterProvider  } from "react-router";
 import { router } from "./router/index"
 import "./assets/styles/main.css";
 
-const app:HTMLElement = document.getElementById("root")!;
+const app = document.getElementById("root");
 
 const root = createRoot(app);
 
