@@ -1,90 +1,99 @@
-import "../assets/styles/index.css" 
-import axios from 'axios';
+import "../assets/styles/index.css";
+import axios from "axios";
 
-import LogoImage from "../assets/logo.png"
-import UserImage from "../assets/user-icon.png"
-import HomeBG1Image from "../assets/home-bg-1.png"
+import LogoImage from "../assets/logo.png";
+import UserImage from "../assets/user-icon.png";
+import HomeBG1Image from "../assets/home-bg-1.png";
 import Carousel from "../components/Carousel";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
 // import DetailVideoModal from "../components/DetailVideoModal";
 
 export default function HomePage() {
+  const [movieRecent, setMovieRecent] = useState([]);
+  const [movieTopRating, setMovieTopRating] = useState([]);
+  const [movieTranding, setMovieTranding] = useState([]);
 
-  const [movieRecent, setMovieRecent] = useState([])
-  const [movieTopRating, setMovieTopRating] = useState([])
-  const [movieTranding, setMovieTranding] = useState([])
-
-  async function getRecentMovie () {
-    const token = localStorage.getItem("token")
+  async function getRecentMovie() {
+    const token = localStorage.getItem("token");
     const options = {
-      method: 'GET',
-      url: 'https://dytuputtiertanijmjev.supabase.co/rest/v1/video',
-      params: {select: '*', type: 'eq.recent'},
+      method: "GET",
+      url: "https://dytuputtiertanijmjev.supabase.co/rest/v1/video",
+      params: { select: "*", type: "eq.recent" },
       headers: {
-        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA',
-        Authorization: `Bearer ${token}`
-      }
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA",
+        Authorization: `Bearer ${token}`,
+      },
     };
 
     try {
       const { data } = await axios.request(options);
       console.log(data);
-      setMovieRecent(data.slice(0,3))
+      setMovieRecent(data.slice(0, 3));
     } catch (error) {
       console.error(error);
     }
   }
-  async function getTopRatingMovie () {
-    const token = localStorage.getItem("token")
+  async function getTopRatingMovie() {
+    const token = localStorage.getItem("token");
     const options = {
-      method: 'GET',
-      url: 'https://dytuputtiertanijmjev.supabase.co/rest/v1/video',
-      params: {select: '*', type: 'eq.top_rating'},
+      method: "GET",
+      url: "https://dytuputtiertanijmjev.supabase.co/rest/v1/video",
+      params: { select: "*", type: "eq.top_rating" },
       headers: {
-        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA',
-        Authorization: `Bearer ${token}`
-      }
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA",
+        Authorization: `Bearer ${token}`,
+      },
     };
 
     try {
       const { data } = await axios.request(options);
       console.log(data);
-      setMovieTopRating(data.slice(0,3))
+      setMovieTopRating(data.slice(0, 3));
     } catch (error) {
       console.error(error);
     }
   }
-  async function getTrandingMovie () {
-    const token = localStorage.getItem("token")
+  async function getTrandingMovie() {
+    const token = localStorage.getItem("token");
     const options = {
-      method: 'GET',
-      url: 'https://dytuputtiertanijmjev.supabase.co/rest/v1/video',
-      params: {select: '*', type: 'eq.trending'},
+      method: "GET",
+      url: "https://dytuputtiertanijmjev.supabase.co/rest/v1/video",
+      params: { select: "*", type: "eq.trending" },
       headers: {
-        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA',
-        Authorization: `Bearer ${token}`
-      }
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA",
+        Authorization: `Bearer ${token}`,
+      },
     };
 
     try {
       const { data } = await axios.request(options);
       console.log(data);
-      setMovieTranding(data.slice(0,3))
+      setMovieTranding(data.slice(0, 3));
     } catch (error) {
       console.error(error);
     }
   }
 
   useEffect(() => {
-    getRecentMovie()
-  }, [])
-  useEffect(() => {
-    getTopRatingMovie()
-  }, [])
-  useEffect(() => {
-    getTrandingMovie()
-  }, [])
+  const fetchData = async () => {
+    try {
+      // Ketiga request dijalankan secara bersamaan
+      await Promise.all([
+        getRecentMovie(),
+        getTopRatingMovie(),
+        getTrandingMovie()
+      ]);
+    } catch (error) {
+      console.error("Gagal mengambil data film:", error);
+    }
+  };
+
+  fetchData();
+}, []);
 
   return (
     <>
@@ -123,6 +132,7 @@ export default function HomePage() {
           </button>
         </div>
       </header>
+      {import.meta.env.VITE_API_URL}
       <main>
         <section className="hero-section">
           <img className="hero-image" src={HomeBG1Image} alt="" />
@@ -181,52 +191,46 @@ export default function HomePage() {
           </div>
         </section>
         <Carousel title="Melanjutkan Tonton Film">
-          {
-            movieRecent.map((item) => (
-              <Card
+          {movieRecent.map((item) => (
+            <Card
               key={item.id}
-                id={item.id}
-                onClick={() => {}}
-                title={item.name}
-                rating={item.rating}
-                isPremium={item.is_premium}
-                image={item.cover_url}
-                type={1}
-              />
-            ))
-          }
+              id={item.id}
+              onClick={() => {}}
+              title={item.name}
+              rating={item.rating}
+              isPremium={item.is_premium}
+              image={item.cover_url}
+              type={1}
+            />
+          ))}
         </Carousel>
         <Carousel title="Top Rating Film dan Series Hari ini">
-           {
-            movieTopRating.map((item) => (
-              <Card
+          {movieTopRating.map((item) => (
+            <Card
               key={item.id}
-                id={item.id}
-                onClick={() => {}}
-                title={item.name}
-                rating={item.rating}
-                isPremium={item.is_premium}
-                image={item.cover_url}
-                type={2}
-              />
-            ))
-          }
+              id={item.id}
+              onClick={() => {}}
+              title={item.name}
+              rating={item.rating}
+              isPremium={item.is_premium}
+              image={item.cover_url}
+              type={2}
+            />
+          ))}
         </Carousel>
         <Carousel title="Tranding">
-           {
-            movieTranding.map((item) => (
-              <Card
+          {movieTranding.map((item) => (
+            <Card
               key={item.id}
-                id={item.id}
-                onClick={() => {}}
-                title={item.name}
-                rating={item.rating}
-                isPremium={item.is_premium}
-                image={item.cover_url}
-                type={2}
-              />
-            ))
-          }
+              id={item.id}
+              onClick={() => {}}
+              title={item.name}
+              rating={item.rating}
+              isPremium={item.is_premium}
+              image={item.cover_url}
+              type={2}
+            />
+          ))}
         </Carousel>
         {/* <DetailVideoModal/> */}
       </main>
