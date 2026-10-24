@@ -79,21 +79,14 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-  const fetchData = async () => {
-    try {
-      // Ketiga request dijalankan secara bersamaan
-      await Promise.all([
-        getRecentMovie(),
-        getTopRatingMovie(),
-        getTrandingMovie()
-      ]);
-    } catch (error) {
-      console.error("Gagal mengambil data film:", error);
-    }
-  };
-
-  fetchData();
-}, []);
+    getRecentMovie();
+  }, []);
+  useEffect(() => {
+    getTopRatingMovie();
+  }, []);
+  useEffect(() => {
+    getTrandingMovie();
+  }, []);
 
   return (
     <>
@@ -132,7 +125,6 @@ export default function HomePage() {
           </button>
         </div>
       </header>
-      {import.meta.env.VITE_API_URL}
       <main>
         <section className="hero-section">
           <img className="hero-image" src={HomeBG1Image} alt="" />
