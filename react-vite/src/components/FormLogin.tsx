@@ -3,8 +3,17 @@ import GoogleImage from "../assets/google-icon.png";
 import Field from "./Field";
 import InputText from "./InputText";
 import InputPassword from "./InputPassword";
+import type { ChangeEventHandler, SubmitEventHandler } from "react";
 
-export default function FormLogin(props) {
+interface IFormLoginProps {
+  handleSubmit: SubmitEventHandler<HTMLFormElement>;
+  handleUsername: ChangeEventHandler<HTMLInputElement, HTMLInputElement>;
+  errorUsername: boolean;
+  handlePassword: ChangeEventHandler<HTMLInputElement, HTMLInputElement>;
+  errorPassword: boolean;
+}
+
+export default function FormLogin(props: IFormLoginProps) {
   const {
     handleSubmit,
     handleUsername,
@@ -34,8 +43,6 @@ export default function FormLogin(props) {
         errorMsg="Password is required"
       >
         <InputPassword
-          id="password"
-          placeholder="Input password"
           onChange={handlePassword}
         />
       </Field>

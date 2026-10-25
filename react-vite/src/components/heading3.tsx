@@ -1,9 +1,14 @@
+import type React from "react";
 import { useTheme } from "../store/theme";
+import type { ReactNode } from "react";
 
-export default function Heading3(props) {
+interface IHeading3Props extends React.HTMLAttributes<HTMLHeadElement> {
+  children: ReactNode;
+}
+
+export default function Heading3(props: IHeading3Props) {
   const { children, ...restProps } = props;
 
-  // const theme = useContext(ThemeContext)
   const themeStore = useTheme()
 
   return (

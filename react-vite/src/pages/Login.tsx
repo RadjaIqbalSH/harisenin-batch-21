@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ChangeEventHandler, type SubmitEventHandler } from "react";
 import { useNavigate } from "react-router";
 import axios from 'axios';
 
@@ -10,16 +10,13 @@ import FormLogin from "../components/FormLogin";
 // import { ThemeContext } from "../context/theme";
 import { useTheme } from "../store/theme"
 
-const STATIC_USERNAME = "admin";
-const STATIC_PASSWORD = "admin";
-
 function LoginPage() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const [errorUsername, setErrorUsername] = useState(false);
-  const [errorPassword, setErrorpassword] = useState(false);
-  const [errorLogin, setErrorLogin] = useState(false);
+  const [errorUsername, setErrorUsername] = useState<boolean>(false);
+  const [errorPassword, setErrorpassword] = useState<boolean>(false);
+  const [errorLogin, setErrorLogin] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -31,7 +28,7 @@ function LoginPage() {
     }
   }, [username]);
 
-  const handleUsername = (event) => {
+  const handleUsername: ChangeEventHandler<HTMLInputElement, HTMLInputElement> = (event) => {
     setUsername(event.target.value);
   };
 
@@ -43,11 +40,11 @@ function LoginPage() {
     }
   }, [password]);
 
-  const handlePassword = (event) => {
+  const handlePassword: ChangeEventHandler<HTMLInputElement, HTMLInputElement> = (event) => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit: SubmitEventHandler<HTMLFormElement> = async (event ) => {
     event.preventDefault();
     await login(username, password)
   };
@@ -56,16 +53,8 @@ function LoginPage() {
 
   const themeStore = useTheme()
 
-  // const handelTheme = () => {
-  //   if (theme) {
-  //     themeStore.changeTheme(),
-  //     setTheme(false);
-  //   } else {
-  //     setTheme(true);
-  //   }
-  // };
 
-  async function  login (username, password) {
+  async function  login (username: string, password: string) {
     const options = {
       method: 'POST',
       url: 'https://dytuputtiertanijmjev.supabase.co/auth/v1/token',

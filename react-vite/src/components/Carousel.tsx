@@ -1,4 +1,11 @@
-export default function Carousel(props) {
+import type { ReactNode } from "react";
+
+interface ICarouselProps {
+  title: string;
+  children: ReactNode;
+}
+
+export default function Carousel(props: ICarouselProps) {
   const { title, children } = props;
 
   return (

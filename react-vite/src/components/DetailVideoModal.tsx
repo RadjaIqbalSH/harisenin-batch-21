@@ -1,6 +1,4 @@
 export default function DetailVideoModal() {
-  //   const {} = props;
-
   return (
     <div className="modal-wrapper">
       <div className="modal">

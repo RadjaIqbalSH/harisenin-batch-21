@@ -1,6 +1,13 @@
+import React from "react";
 import { useTheme } from "../store/theme";
+import type { ReactNode } from "react";
 
-export default function BodyMediumRegular (props) {
+
+interface IBodyMediumRegularProps extends React.HTMLAttributes<HTMLParagraphElement> {
+    children: ReactNode;
+}
+
+export default function BodyMediumRegular (props:IBodyMediumRegularProps ) {
 
     const {
         children,

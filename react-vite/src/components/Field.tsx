@@ -1,11 +1,24 @@
-// import { useContext } from "react";
-// import { ThemeContext } from "../context/theme";
+import type { ReactNode } from "react";
 import { useTheme } from "../store/theme";
+import type React from "react";
 
-export default function Field(props) {
+// function exmaple<T>(payload: T): T {
+
+//   return 
+// }
+
+// exmaple<number>(3)
+
+interface IFieldProps {
+  id: string;
+  label: string;
+  isError: boolean;
+  errorMsg: string;
+  children: ReactNode
+}
+
+export default function Field(props: IFieldProps) {
   const { id, label, isError, errorMsg, children } = props;
-
-  // const theme = useContext(ThemeContext)
 
   const themeStore = useTheme()
 
