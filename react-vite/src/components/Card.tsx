@@ -2,7 +2,7 @@ interface ICardProps {
   id: string;
   onClick: (id: string) => void;
   title: string;
-  rating: string;
+  rating: number;
   isPremium: boolean;
   image: string;
   type: 1 | 2;

@@ -7,12 +7,13 @@ import HomeBG1Image from "../assets/home-bg-1.png";
 import Carousel from "../components/Carousel";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
+import type { IResponseMovie } from "../types/response-movie";
 // import DetailVideoModal from "../components/DetailVideoModal";
 
 export default function HomePage() {
-  const [movieRecent, setMovieRecent] = useState([]);
-  const [movieTopRating, setMovieTopRating] = useState([]);
-  const [movieTranding, setMovieTranding] = useState([]);
+  const [movieRecent, setMovieRecent] = useState<IResponseMovie[]>([]);
+  const [movieTopRating, setMovieTopRating] = useState<IResponseMovie[]>([]);
+  const [movieTranding, setMovieTranding] = useState<IResponseMovie[]>([]);
 
   async function getRecentMovie() {
     const token = localStorage.getItem("token");
@@ -186,12 +187,12 @@ export default function HomePage() {
           {movieRecent.map((item) => (
             <Card
               key={item.id}
-              id={item.id}
+              id={item?.id || ""}
               onClick={() => {}}
-              title={item.name}
-              rating={item.rating}
-              isPremium={item.is_premium}
-              image={item.cover_url}
+              title={item?.name || ""}
+              rating={item?.rating || 1}
+              isPremium={item?.is_premium || false}
+              image={item?.cover_url || ""}
               type={1}
             />
           ))}
@@ -200,12 +201,12 @@ export default function HomePage() {
           {movieTopRating.map((item) => (
             <Card
               key={item.id}
-              id={item.id}
+              id={item?.id || ""}
               onClick={() => {}}
-              title={item.name}
-              rating={item.rating}
-              isPremium={item.is_premium}
-              image={item.cover_url}
+              title={item?.name || ""}
+              rating={item?.rating || 1}
+              isPremium={item?.is_premium || false}
+              image={item?.cover_url || ""}
               type={2}
             />
           ))}
@@ -214,12 +215,12 @@ export default function HomePage() {
           {movieTranding.map((item) => (
             <Card
               key={item.id}
-              id={item.id}
+              id={item?.id || ""}
               onClick={() => {}}
-              title={item.name}
-              rating={item.rating}
-              isPremium={item.is_premium}
-              image={item.cover_url}
+              title={item?.name || ""}
+              rating={item?.rating || 1}
+              isPremium={item?.is_premium || false}
+              image={item?.cover_url || ""}
               type={2}
             />
           ))}
