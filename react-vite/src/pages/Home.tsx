@@ -8,7 +8,6 @@ import Card from "../components/Card";
 import { useEffect, useState } from "react";
 import type { IResponseMovie } from "../types/response-movie";
 import { api } from "../utils/axios";
-// import DetailVideoModal from "../components/DetailVideoModal";
 
 export default function HomePage() {
   const [movieRecent, setMovieRecent] = useState<IResponseMovie[]>([]);
