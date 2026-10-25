@@ -1,5 +1,4 @@
 import "../assets/styles/index.css";
-import axios from "axios";
 
 import LogoImage from "../assets/logo.png";
 import UserImage from "../assets/user-icon.png";
@@ -8,6 +7,7 @@ import Carousel from "../components/Carousel";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
 import type { IResponseMovie } from "../types/response-movie";
+import { api } from "../utils/axios";
 // import DetailVideoModal from "../components/DetailVideoModal";
 
 export default function HomePage() {
@@ -15,79 +15,35 @@ export default function HomePage() {
   const [movieTopRating, setMovieTopRating] = useState<IResponseMovie[]>([]);
   const [movieTranding, setMovieTranding] = useState<IResponseMovie[]>([]);
 
-  async function getRecentMovie() {
-    const token = localStorage.getItem("token");
-    const options = {
-      method: "GET",
-      url: "https://dytuputtiertanijmjev.supabase.co/rest/v1/video",
-      params: { select: "*", type: "eq.recent" },
-      headers: {
-        apikey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
+  async function getMovie(type: string) {
+    let result: IResponseMovie[] = []
     try {
-      const { data } = await axios.request(options);
-      console.log(data);
-      setMovieRecent(data.slice(0, 3));
+      const response = await api.get("/rest/v1/video", {
+        params: { select: "*", type: `eq.${type}` }
+      })
+      result = response.data
     } catch (error) {
       console.error(error);
     }
+    return result
   }
-  async function getTopRatingMovie() {
-    const token = localStorage.getItem("token");
-    const options = {
-      method: "GET",
-      url: "https://dytuputtiertanijmjev.supabase.co/rest/v1/video",
-      params: { select: "*", type: "eq.top_rating" },
-      headers: {
-        apikey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA",
-        Authorization: `Bearer ${token}`,
-      },
-    };
 
-    try {
-      const { data } = await axios.request(options);
-      console.log(data);
-      setMovieTopRating(data.slice(0, 3));
-    } catch (error) {
-      console.error(error);
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const dataRecent = await getMovie("recent");
+        setMovieRecent(dataRecent.slice(0,3));
+        const dataTopRating = await getMovie("top_rating");
+        setMovieTopRating(dataTopRating.slice(0,3));
+        const dataTrending = await getMovie("trending");
+        setMovieTranding(dataTrending.slice(0,3));
+      } catch (error) {
+        console.error("error => ", error)
+      }
     }
-  }
-  async function getTrandingMovie() {
-    const token = localStorage.getItem("token");
-    const options = {
-      method: "GET",
-      url: "https://dytuputtiertanijmjev.supabase.co/rest/v1/video",
-      params: { select: "*", type: "eq.trending" },
-      headers: {
-        apikey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA",
-        Authorization: `Bearer ${token}`,
-      },
-    };
+    getData()
+  },[])
 
-    try {
-      const { data } = await axios.request(options);
-      console.log(data);
-      setMovieTranding(data.slice(0, 3));
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  useEffect(() => {
-    getRecentMovie();
-  }, []);
-  useEffect(() => {
-    getTopRatingMovie();
-  }, []);
-  useEffect(() => {
-    getTrandingMovie();
-  }, []);
 
   return (
     <>

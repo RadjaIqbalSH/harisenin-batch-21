@@ -1,31 +1,27 @@
 import { useEffect, useState, type ChangeEventHandler, type SubmitEventHandler } from "react";
 import { useNavigate } from "react-router";
-import axios from 'axios';
 
 import "../assets/styles/registration.css" 
 import LogoImage from "../assets/logo.png"
 import FormRegister from "../components/FormRegister";
+import { api } from "../utils/axios";
 
 function RegisterPage() {
 
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-
   const [errorUsername, setErrorUsername] = useState<boolean>(false);
   const [errorPassword, setErrorpassword] = useState<boolean>(false);
   const [errorConfirmPassword, setErrorConfirmPassword] = useState<boolean>(false);
   const [errorLogin, setErrorLogin] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState("Invalid username / password")
 
   const navigate = useNavigate();
-
-  
 
   const handleUsername: ChangeEventHandler<HTMLInputElement, HTMLInputElement> = (event) => {
     setUsername(event.target.value);
   };
-
-  
 
   const handlePassword: ChangeEventHandler<HTMLInputElement, HTMLInputElement> = (event) => {
     setPassword(event.target.value);
@@ -36,70 +32,31 @@ function RegisterPage() {
 
   const handleSubmit: SubmitEventHandler<HTMLFormElement> = async (event ) => {
     event.preventDefault();
-    await login(username, password)
+    await login(username, password, confirmPassword)
   };
 
-  // const [theme, setTheme] = useState(false);
-
-  async function  login (username: string, password: string) {
-    const options = {
-      method: 'POST',
-      url: 'https://dytuputtiertanijmjev.supabase.co/auth/v1/token',
-      params: {grant_type: "password"},
-      headers: {
-        Authorization: 'Bearer sb_secret_PFrzVsZnNPvV3apbguclsw_QIUOy3pX',
-        'Content-Type': 'application/json',
-        apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5dHVwdXR0aWVydGFuaWptamV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NDcwMTcsImV4cCI6MjEwODMyMzAxN30.9j8Ur3SGzGbvq6RZlVUjrrSZnZ-Glyrtypi2CbPTDlA'
-      },
-      data: { email: username, password: password }
-    };
-
+  async function  login (username: string, password: string, confirmPassword: string) {
+    if (password !== confirmPassword) {
+      setErrorLogin(true);
+      setErrorMsg("Password not match");
+      return;
+    }
     try {
-      const { data } = await axios.request(options);
-      console.log(data);
-
+      const { data } = await api.post("/auth/v1/signup", { email: username, password: password }, {
+        params: {grant_type: "password"},
+      })
       localStorage.setItem("token", data.access_token)
-
       navigate("/")
-
     } catch {
       setErrorLogin(true)
     }
   }
 
   useEffect(() => {
-    // ngambil token yang ada di storage
-    const token = localStorage.getItem("token")
-
-    if (token) {
-      navigate("/")
-    }
-  }, [])
-
-  useEffect(() => {
-    if (username.length < 1) {
-      setErrorUsername(true);
-    } else {
-      setErrorUsername(false);
-    }
-  }, [username]);
-
-  useEffect(() => {
-    if (password.length < 1) {
-      setErrorpassword(true);
-    } else {
-      setErrorpassword(false);
-    }
-  }, [password]);
-
-  useEffect(() => {
-    if (confirmPassword.length < 1) {
-      setErrorConfirmPassword(true);
-    } else {
-      setErrorConfirmPassword(false);
-    }
-  }, [password]);
-
+    setErrorUsername(username.length < 1);
+    setErrorpassword(password.length < 1);
+    setErrorConfirmPassword(confirmPassword.length < 1);
+  }, [username, password, confirmPassword]);
 
   return (
     <main className="container">
@@ -119,7 +76,7 @@ function RegisterPage() {
             visibility: errorLogin ? "visible" : "hidden",
           }}
         >
-          Invalid username / password
+          {errorMsg}
         </span>
         <FormRegister
           handleSubmit={handleSubmit}
