@@ -53,7 +53,6 @@ function LoginPage() {
 
   const themeStore = useTheme()
 
-
   async function  login (username: string, password: string) {
     const options = {
       method: 'POST',
